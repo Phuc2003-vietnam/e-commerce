@@ -47,6 +47,7 @@ const authentication = asyncHandler(async (req, res, next) => {
 
   const decodeUser = JWT.verify(accessToken, keyStore.publicKey);
   req.keyStore = keyStore;
+  req.user=decodeUser
   return next();
 });
 
