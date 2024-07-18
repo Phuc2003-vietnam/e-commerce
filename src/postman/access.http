@@ -44,34 +44,3 @@ x-rtoken-id: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njk1MzIxZDVkOG
 authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njk1MzJlOTVjYmJlZmI1MmM2ODBkOGEiLCJlbWFpbCI6InNob3B0aXBqczIxMTU1MjIyN0BnbWFpbC5jb20iLCJpYXQiOjE3MjExMjQyODUsImV4cCI6MTcyMTI5NzA4NX0.q-bdFNa_9yEcEWFyn9ld50NkBfcjl5bnafoCD2REmk23-oInPqyUh7_my0NQ3H5sIvL_U03OzKBXNBmeuUoFDPekly8ZkSm9lB4SefgXgQk0VxCAR7xe7RryT-EHiKIo-b7Bkxcpjs6crLakb0rKajQl72LRA_wKOK5YKVsTKq7Ep2tgGeWQuU4Ocey6VbNTLlrE1EaH3YNfCDcYhkwu1kThCrlj7hDrQsh64bd_j2EjG2hmcd3AqqajUGZtR_rP3ZSkeo45kvqZDwpIybLz-9WCjlyi-Bv9BWbLP7Ny1ZrO_gtW2jPnaZVsiCzdCv57fHaY4c1NAy1NZCezWx__p0XXsY_gndMbsxTcdLvjdhwp2wmzYo8E3R_UPxivnEst-dZu_jthUJCHvFi6C3N5DBEPy7O5aFMacZR4IUq6u1Ek_ouhdhcXdSNOKOVWZ_ON2LLHkd4MUZPnemsPuzHBw3s1bHZhXujC4gnMOvO-myyugL4BgznZlXqH_UWlr8mQsX6o-x4iivPpRu955NsrWqkjpb-DoThXE5pRG_Y9UrdPvT_qd2ssd8UUxqK0GwsGOWpjDDOoH7euDJO6hKGEcnOxHr287ZoeWUoNo5Q2jFRD5KNkFr-p-bfnoyomn5IKWi2H34NPF2Lur-MexjWJfF2UTkJRWpw01L3CR-GpEKc
  
 
-### create new product
-POST {{url_dev}}/product
-Content-Type: application/json
-x-api-key: 021ee34a3780763e754c19b0dcfa721baec7b684848ad7a7db1cfdd37f92935599445c6c1c2f99f34cfa04fec4536d90c9534c4ac9d07856a8dc41b875a204c0
-x-client-id: 6695321d5d8a7a6cddde90d4
-authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njk1MzIxZDVkOGE3YTZjZGRkZTkwZDQiLCJlbWFpbCI6InNob3B0aXBqczIxMTU1MjI3QGdtYWlsLmNvbSIsImlhdCI6MTcyMTIwMzQ1NywiZXhwIjoxNzIxMzc2MjU3fQ.iTCB9lrhiXkYQ15-xYvxVGo5YyVyccm-TKxL258wvC2KhCsS1wCsc11h9Nelt-vrq1EaESyFjwYpTRlxgkR-x4xDBg5chxzcO2G_cNKn9l3qmYODgSTJZwJqqpjYKsodlklc9nVTIRIxnsHwPwgWTph8I_lkTS8v7ixTk0rsfYu55XGebrfNx4cve9a1uCj_8yT9vNmnSJlRTqSdrc9I7_3tRZisN_2Y3cJKJ8E5zWL2LuI4nNONqzOCKedRzrvNb_Oh3uROJgykRFOAvF5ljHPjqXCaNvkrNqBZP2jRG8RoF5OWwHPyimgkntZzBdY2F-ZluusLwl2kb2CPvCd9KruSor4kV_r2MSH7GP0SP_Pd0xTXpbjVsGXvFKE2gRyFog95z-8m500qQJxtZX3RDFjCnjuesDxfXSCeWWTrKFeF3QdUAm4ig2Q15ZP3tVc1vgzAemM7k1YkH8WaKE2oF1BpFj2HYtz7EREAkTj_TycJ8Erl10gsZlnM9rvTKPA9uA4of7lrN_V8gOYGydg2yYRpd4GkVeYLOw1DvHPg3npHmhzDnPegIw2skuB1P1yrxO7tDFxd4-uXnwLD4DnTDCyPHqF-aq8I6wpYGwY454HNnkJ7pzzpeCONSkFrIjqWd6l1XcMjCYYC_AAQIthqd9cTAQIqnBhewA7Q7XOYWkY
-    
-    # "product_name":"New Jeans",
-    # "product_description": "high quality denim jeans",
-    # "product_price": 50,
-    # "product_type": "Clothing",
-    # "product_thumb": "url.com",
-    # "product_quantity" : 5,
-    # "product_attributes": {
-    #     "brand": "Levi s",
-    #     "size": "L",
-    #     "material": "Denim"
-    # }
-{
-    "product_name":"Iphone 14 64Gb",
-    "product_description": "high quality",
-    "product_price": 500,
-    "product_type": "Electronics",
-    "product_thumb": "url.com",
-    "product_quantity" : 50,
-    "product_attributes": {
-        "manufacturer": "Apple",
-        "model": "Iphone 14",
-        "color": "Gold"
-    }
-}

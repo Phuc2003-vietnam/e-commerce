@@ -53,7 +53,7 @@ const clothingSchema = new Schema(
     },
   },
   {
-    collection: "Clothes",
+    collection: "Clothing",
     timestamps: true,
   }
 );
@@ -75,9 +75,28 @@ const electronicSchema = new Schema(
   }
 );
 
+const furnitureSchema = new Schema(
+  {
+    brand: { type: String, require: true },
+    size: String,
+    material: String,
+    productId: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: "Product",
+    },
+  },
+  {
+    collection: "Furnitures",
+    timestamps: true,
+  }
+);
+
 //Export the model
 module.exports = {
   productModel: model(DOCUMENT_NAME, productSchema),
-  electronicModel: model("Electronics", electronicSchema),
-  clothingModel: model("Clothes", clothingSchema),
+  electronicsModel: model("Electronics", electronicSchema),
+  clothingModel: model("Clothing", clothingSchema),
+  furnitureModel: model("Furniture", furnitureSchema),
+
 };
