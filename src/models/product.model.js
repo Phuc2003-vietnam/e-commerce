@@ -47,6 +47,11 @@ const productSchema = new Schema(
       max: [5, "Rating must be below 5.0"],
       set: (val) => Math.round(val * 10) / 10,
     },
+    product_attributes: {
+      type: Schema.Types.ObjectId,
+      refPath: 'product_type',
+    },
+
     product_variations: {
       type: Array,
       default: [],
@@ -65,11 +70,6 @@ const clothingSchema = new Schema(
     brand: { type: String, require: true },
     size: String,
     material: String,
-    productId: {
-      type: Schema.Types.ObjectId,
-      required: true,
-      ref: "Product",
-    },
   },
   {
     collection: "Clothing",
@@ -82,11 +82,6 @@ const electronicSchema = new Schema(
     manufacturer: { type: String, require: true },
     model: String,
     color: String,
-    productId: {
-      type: Schema.Types.ObjectId,
-      required: true,
-      ref: "Product",
-    },
   },
   {
     collection: "Electronics",
@@ -99,11 +94,6 @@ const furnitureSchema = new Schema(
     brand: { type: String, require: true },
     size: String,
     material: String,
-    productId: {
-      type: Schema.Types.ObjectId,
-      required: true,
-      ref: "Product",
-    },
   },
   {
     collection: "Furnitures",

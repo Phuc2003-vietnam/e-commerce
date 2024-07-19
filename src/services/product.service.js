@@ -61,6 +61,26 @@ class Factory {
       keySearch,
     });
   }
+
+  static async findaAllProducts({
+    limit = 50,
+    page = 1,
+    sort = "ctime",
+    filter = { isPublished: true },
+  }) {
+    //Thong thuong select là fill cố định chỉ có filter là thay đổi
+    return await ProductDBInteractionLayer.findAllProducts({
+      page,
+      limit,
+      sort,
+      filter,
+      select: { product_name: 1, product_price: 1, product_thumb: 1 },
+    });
+  }
+
+  static async findProduct({product_id}) {
+    return await ProductDBInteractionLayer.findProduct({product_id,unSelect:{__v:0}})
+  }
 }
 //define classes
 class Product {
@@ -86,7 +106,7 @@ class Product {
 class Clothing extends Product {
   constructor(payload) {
     super(payload);
-    this.product_attributes = payload.product_attributes;
+    this.product_attributes_for_child_class = payload.product_attributes;
   }
   async createProduct() {
     return await createProductInTransistion(this, clothingModel);
@@ -96,7 +116,7 @@ class Clothing extends Product {
 class Electronics extends Product {
   constructor(payload) {
     super(payload);
-    this.product_attributes = payload.product_attributes;
+    this.product_attributes_for_child_class = payload.product_attributes;
   }
   async createProduct() {
     return await createProductInTransistion(this, electronicsModel);
@@ -106,7 +126,7 @@ class Electronics extends Product {
 class Furniture extends Product {
   constructor(payload) {
     super(payload);
-    this.product_attributes = payload.product_attributes;
+    this.product_attributes_for_child_class = payload.product_attributes;
   }
   async createProduct() {
     return await createProductInTransistion(this, furnitureModel);
