@@ -7,6 +7,7 @@ const {
 } = require("../models/product.model");
 const { BadRequestError } = require("../core/error.response");
 const { createProductInTransistion } = require("../utils/database");
+const ProductDBInteractionLayer = require("../models/repositories/product.repo");
 //define factory
 class Factory {
   static productRegistry = {};
@@ -21,6 +22,44 @@ class Factory {
       throw new BadRequestError(`Invalid product type: ${type}`);
     }
     return await new productClass(payload).createProduct();
+  }
+
+  static async findAllDraftsForShop({ product_shop, limit = 50, skip = 0 }) {
+    const query = { product_shop, isDraft: true };
+    return await ProductDBInteractionLayer.findProductsByQuery({
+      query,
+      limit,
+      skip,
+    });
+  }
+
+  static async findAllPublishForShop({ product_shop, limit = 50, skip = 0 }) {
+    const query = { product_shop, isPublished: true };
+    return await ProductDBInteractionLayer.findProductsByQuery({
+      query,
+      limit,
+      skip,
+    });
+  }
+
+  static async publishProductByShop({ product_shop, product_id }) {
+    return await ProductDBInteractionLayer.publishProductByShop({
+      product_shop,
+      product_id,
+    });
+  }
+
+  static async unPublishProductByShop({ product_shop, product_id }) {
+    return await ProductDBInteractionLayer.unPublishProductByShop({
+      product_shop,
+      product_id,
+    });
+  }
+
+  static async searchProducts({ keySearch }) {
+    return await ProductDBInteractionLayer.searchProductByNameDescription({
+      keySearch,
+    });
   }
 }
 //define classes
