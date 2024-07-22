@@ -1,4 +1,4 @@
-const { model, Schema } = require("mongoose"); // Erase if already required
+  const { model, Schema } = require("mongoose"); // Erase if already required
 const slugify = require("slugify");
 
 const DOCUMENT_NAME = "Product";

@@ -1,4 +1,4 @@
-const inventoryModel = require("../inventory.js");
+const inventoryModel = require("../inventory.model.js");
 const { Types } = require("mongoose");
 
 
