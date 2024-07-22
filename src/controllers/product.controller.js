@@ -44,7 +44,7 @@ class ProductController {
       message: "Publish product success",
       metadata: await ProductService.publishProductByShop({
         product_shop: req.user.userId,
-        product_id: req.params.id
+        product_id: req.params.id,
       }),
     }).send(res);
   };
@@ -54,33 +54,43 @@ class ProductController {
       message: "Publish product success",
       metadata: await ProductService.unPublishProductByShop({
         product_shop: req.user.userId,
-        product_id: req.params.id
+        product_id: req.params.id,
       }),
     }).send(res);
   };
 
-  getListSearchProduct=async(req,res,next)=>{
+  getListSearchProduct = async (req, res, next) => {
     new OK({
       message: "Get searched product success",
-      metadata: await ProductService.searchProducts(req.params)
+      metadata: await ProductService.searchProducts(req.params),
     }).send(res);
-  }
+  };
 
-  getAllProducts=async(req,res,next)=>{
+  getAllProducts = async (req, res, next) => {
     new OK({
       message: "Get all products by filter success",
-      metadata: await ProductService.findaAllProducts(req.query)
+      metadata: await ProductService.findaAllProducts(req.query),
     }).send(res);
-  }
+  };
 
-  getProduct=async(req,res,next)=>{
+  getProduct = async (req, res, next) => {
     new OK({
       message: "Get a product success",
-      metadata: await ProductService.findProduct({product_id: req.params.product_id})
+      metadata: await ProductService.findProduct({
+        product_id: req.params.product_id,
+      }),
     }).send(res);
-  }
+  };
 
+  updateProduct = async (req, res, next) => {
+    new OK({
+      message: "Update a product success",
+      metadata: await ProductService.updateProduct({
+        product_id: req.params.product_id,
+        payload: req.body
+      }),
+    }).send(res);
+  };
 
 }
-
 module.exports = new ProductController();

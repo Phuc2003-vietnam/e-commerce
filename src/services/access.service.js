@@ -4,7 +4,7 @@ const crypto = require("crypto");
 const KeyTokenService = require("./keyToken.service.js");
 const keyTokenModel = require("../models/keytoken.model");
 const { createTokenPair, verifyJWT } = require("../auth/authUtils.js");
-const { getInfoData, createPublicPrivateKeys } = require("../utils/index.js");
+const { getPickedData, createPublicPrivateKeys } = require("../utils/index.js");
 const {
   BadRequestError,
   AuthFailureError,
@@ -92,7 +92,7 @@ class AccessService {
     });
 
     return {
-      shop: getInfoData({
+      shop: getPickedData({
         object: foundShop,
         fields: ["_id", "name", "email"],
       }),
@@ -130,7 +130,7 @@ class AccessService {
       });
 
       return {
-        shop: getInfoData({
+        shop: getPickedData({
           object: newShop,
           fields: ["_id", "name", "email"],
         }),
