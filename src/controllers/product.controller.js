@@ -40,6 +40,7 @@ class ProductController {
   };
 
   publishProductByShop = async (req, res, next) => {
+    console.log("sdasdas");
     new OK({
       message: "Publish product success",
       metadata: await ProductService.publishProductByShop({

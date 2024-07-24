@@ -135,7 +135,9 @@ class DiscountService {
    *
    *
    * @returns the discount price and total price that user need to pay
+   * @attention this function didn't check if the codeId is valid with the product
    */
+
   static async getDiscountAmount({ codeId, userId, shopId, products }) {
     //check if the discount code is valid first
     const foundDiscount = await discountModel.findOne({

@@ -54,7 +54,6 @@ class ProductDBInteractionLayer {
       product_shop: new mongoose.Types.ObjectId(product_shop),
       _id: new mongoose.Types.ObjectId(product_id),
     });
-
     if (!product) throw NotFoundError("Not found this product");
 
     product.isDraft = false;
@@ -137,6 +136,25 @@ class ProductDBInteractionLayer {
       session.endSession();
       throw err;
     }
+  };
+
+  static getProductById = async (productId) => {
+    return await productModel.findById(productId);
+  };
+
+  static getProducts = async (products) => {
+    return await Promise.all(
+      products.map(async (product) => {
+        const foundProduct = await this.getProductById(product.productId);
+        if (foundProduct) {
+          return {
+            price: foundProduct.product_price,
+            quantity: product.quantity,
+            productId: product.producId,
+          };
+        }
+      })
+    );
   };
 }
 

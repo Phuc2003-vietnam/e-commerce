@@ -46,6 +46,7 @@ class Factory {
   }
 
   static async publishProductByShop({ product_shop, product_id }) {
+    console.log("hello");
     return await ProductDBInteractionLayer.publishProductByShop({
       product_shop,
       product_id,
@@ -77,7 +78,12 @@ class Factory {
       limit,
       sort,
       filter,
-      select: { product_name: 1, product_price: 1, product_thumb: 1 },
+      select: {
+        product_name: 1,
+        product_price: 1,
+        product_thumb: 1,
+        product_shop: 1,
+      },
     });
   }
 
@@ -121,9 +127,9 @@ class Product {
     await InventoryDBInteractionLayer.insertInventory({
       productId: newProduct._id,
       shopId: newProduct.product_shop,
-      stock: newProduct.product_quantity
+      stock: newProduct.product_quantity,
     });
-    return newProduct
+    return newProduct;
     // return await productModel.create(this);
   }
 

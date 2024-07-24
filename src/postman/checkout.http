@@ -1,0 +1,25 @@
+@url_dev=http://localhost:8080/v1/api
+
+GET {{url_dev}}/checkout/review
+Content-Type: application/json
+x-api-key: 021ee34a3780763e754c19b0dcfa721baec7b684848ad7a7db1cfdd37f92935599445c6c1c2f99f34cfa04fec4536d90c9534c4ac9d07856a8dc41b875a204c0
+x-client-id: 6695321d5d8a7a6cddde90d4
+authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njk1MzIxZDVkOGE3YTZjZGRkZTkwZDQiLCJlbWFpbCI6InNob3B0aXBqczIxMTU1MjI3QGdtYWlsLmNvbSIsImlhdCI6MTcyMTcwMzYzNSwiZXhwIjoxNzIxODc2NDM1fQ.UmZcH78G5HJ6PsVL8dQ7hdBZTvU_ADzrovKI6nRCSffEP_wwcsr87tvySJumh2ybX8rmK7mc0zQiKJTRx3TYayugg_zFABb5j_NoVUgzt64M9eQoqLZZJNYHTULN2A4vbxfl8iUYlnOMlJpfIICbCdgwUBRK7LzztiOaejvYhUe6CyImZYx8soKhesnQKicr60RuCtrvH3Q9nG4hg022KKuGgXmj2UisE4X1ZP2j1s2S0KKw2bEB-ytVwrZz-VesdvjGnVsVz5N3vpWaoFijkt_6z4QwAm2nIbLm_8U16XEpjJ0faH0x8_yIk9LoUl1wg-ZIdRNw2WL1IOLPyP3nGSqtlEJV9WwN9MrVpK4qmXofTOIwmmASiRFpvEuPPVbyI28e-XoLc2MKZbEv82L1x-BGQWEKoMKlXOGv0JUFMbpcjca5LhjwZ0VNhDDCOX4liTo1e1TjQdJqMjUa2wbboDEMgDdUZsB9pTwlld6gqdYZO0Jnk0ySG4S94gLsn_o0yZLshiLmaUh82-bwat18qvTAOAoWDbm8AcEvzWiVwYurN05_vNUz4qN6HpKADZTifd_K3mPZj2dFMmMOC9IHXKygDfiJBmd0rZGoSUSw0pcf-kiwZ2KnbuTrB2Iz3JE4pjYMzwb2OraebfpM_BHLQylhA2nJT2xoRKGwwkbVjKU
+
+{
+    "cartId": "669f2085932dab9f021e58cd",
+    "userId": "1001",
+    "shop_order_ids":[{
+        "shopId":"6695321d5d8a7a6cddde90d4",
+        "shop_discounts":[{
+            "shop_id":"6695321d5d8a7a6cddde90d4",
+            "discountId":"66a0ce7573d3bf884c5102fd",
+            "codeId":"SHOP-fix-2"
+        }],
+        "item_products":[{
+            "price":5020,
+            "quantity":100,
+            "productId":"669a40ed2b5d352783c9cc49"
+        }]
+    }]
+}
