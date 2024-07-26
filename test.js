@@ -1,3 +1,8 @@
-let a = {};
-a[1] = "hello";
-console.log(a[2]);
+function foo(a = 3) {
+  return function doo() {
+    console.log(a);
+  };
+}
+
+b = foo();
+b();

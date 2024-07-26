@@ -25,6 +25,7 @@ var inventorySchema = new Schema(
       type: Array,
       default: [],
     },
+    // [{quantity,productId,createdOn: newDate()}]
   },
   {
     timestamps: true,
