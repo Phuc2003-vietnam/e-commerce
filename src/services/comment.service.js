@@ -131,7 +131,6 @@ class CommentService {
       { comment_left: { $gt: rightValue } },
       { $inc: { comment_left: -width } }
     );
-    
   }
 }
 module.exports = CommentService;

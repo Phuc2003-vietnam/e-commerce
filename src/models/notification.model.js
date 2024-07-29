@@ -11,11 +11,15 @@ SHOP-001: sgop create new product by user following
  */
 const notificationSchema = new mongoose.Schema(
   {
-    noti_type:{type:String,enum:['ORDER-001','ORDER-002','PROMOTION-001','SHOP-001'],require:true},
-    noti_senderId:{type:Number,required:true},
-    noti_receiverId:{type:Number,required:true},
-    noti_content:{type:String,required:true},
-    noti_options:{type:Object,default:{}}
+    noti_type: {
+      type: String,
+      enum: ["ORDER-001", "ORDER-002", "PROMOTION-001", "SHOP-001"],
+      require: true,
+    },
+    noti_senderId: { type: Schema.Types.ObjectId, required: true, ref: "Shop" }, 
+    noti_receiverId: { type: Number, required: true },// Schema.Types.ObjectId
+    noti_content: { type: String, required: true },
+    noti_options: { type: Object, default: {} },
   },
   {
     timestamps: true,

@@ -10,6 +10,7 @@ const ProductDBInteractionLayer = require("../models/repositories/product.repo")
 const InventoryDBInteractionLayer = require("../models/repositories/inventory.repo");
 
 const { removeUndefinedObject } = require("../utils");
+const NotificaitonService = require("./notification.service");
 //define factory
 class Factory {
   static productRegistry = {};
@@ -123,12 +124,23 @@ class Product {
     const newProduct = session
       ? (await productModel.create([this], { session }))[0]
       : await productModel.create(this);
-    console.log(newProduct);
     await InventoryDBInteractionLayer.insertInventory({
       productId: newProduct._id,
       shopId: newProduct.product_shop,
       stock: newProduct.product_quantity,
     });
+    //push noti to system notification, here we use PUSH, so only PUSH to frequently active users or ones subscribe to voucher ,
+    // other use PULL when login
+    const noti=await NotificaitonService.pushNotiToSystem({
+      type: "SHOP-001",
+      receiverId: 1,
+      senderId: this.product_shop,
+      options: {
+        product_name: this.product_name,
+        shop_name: this.product_shop,
+      },
+    });
+    console.log(noti);
     return newProduct;
     // return await productModel.create(this);
   }
