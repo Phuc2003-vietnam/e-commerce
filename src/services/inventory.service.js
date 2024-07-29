@@ -13,7 +13,7 @@ class InventoryService{
         }
         const update={
             $inc:{
-                inven_stock=+stock
+                inven_stock:stock
             },
             $set:{
                 inven_location:location
